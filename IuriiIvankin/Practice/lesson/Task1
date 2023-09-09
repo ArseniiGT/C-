@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    char answer;
+    std::cout << "Уроки сделаны?" << std::endl;
+    std::cin  >> answer;
+    if (answer == 'y')
+    {
+        std::cout << "Молодец!";
+    }
+    return 0;
+}
