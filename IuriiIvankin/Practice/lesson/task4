@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    int number;
+    std::cout << "Введите число : ";
+    std::cin >> number;
+    if (number%5 == 0)
+        std::cout << "Введенное число " << number << " заканчивается на 5";
+    else
+        std::cout << "Введенное число " << number << " не заканчивается на 5";
+    return 0;
+}
