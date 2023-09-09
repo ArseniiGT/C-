@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    int number;
+    std::cout << "Введи число : ";
+    std::cin >> number;
+    if (number < 0)
+        std::cout << "Число " << number << " отрицательное";
+    else
+        std::cout << "Число " << number << " положительное";
+    return 0;
+}
