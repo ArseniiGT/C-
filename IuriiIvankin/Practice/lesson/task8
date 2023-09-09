@@ -1,0 +1,24 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    int x, y;
+    std::cout << "введите значение x : ";
+    std::cin >> x;
+    std::cout << std::endl;
+
+    std::cout << "введите длину стороны y : ";
+    std::cin >> y;
+    std::cout << std::endl;
+
+    if (x>0 && y>0)
+        std::cout << "Принадлежит I четверти" << std::endl;
+    if (x<0 && y>0)
+        std::cout << "Принадлежит II четверти" << std::endl;
+    if (x<0 && y<0)
+        std::cout << "Принадлежит III четверти" << std::endl;
+    if (x>0 && y<0)
+        std::cout << "Принадлежит IV четверти" << std::endl;
+    return 0;
+}
