@@ -1,0 +1,20 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    int a, b;
+    std::cout << "введите первое число : ";
+    std::cin >> a;
+    std::cout << std::endl;
+
+    std::cout << "введите второе число : ";
+    std::cin >> b;
+    std::cout << std::endl;
+
+    if (a%b == 0)
+        std::cout << a << " делится на " << b << std::endl;
+    else
+        std::cout << a << " не делится на " << b << std::endl;
+    return 0;
+}
