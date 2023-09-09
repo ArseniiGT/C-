@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+    int number;
+    bool n3 = false;
+
+    while (n3 != true)
+    {
+        std::cout << "введите целое, трехзначное число : ";
+        std::cin >> number;
+        if (number > 99 && number < 1000)
+            n3=true;
+        else
+            std::cout << "вы ввели не правильное число!" << std::endl;
+    }
+
+    int a,b,c;
+    a = (number % 100) % 10;
+    b = (((number % 100) - a) / 10);
+    c = (number - a - b*10) / 100;
+    int summ = a+b+c;
+    if (summ > 9)
+        std::cout << "Сумма цифр : " << summ;
+
+    return 0;
+}
