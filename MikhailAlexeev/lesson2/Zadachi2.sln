@@ -1,31 +1,84 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34024.191
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Zadachi2", "Zadachi2\Zadachi2.vcxproj", "{60A16821-8AFC-4410-A107-7454B466ACE0}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Debug|x64.ActiveCfg = Debug|x64
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Debug|x64.Build.0 = Debug|x64
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Debug|x86.ActiveCfg = Debug|Win32
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Debug|x86.Build.0 = Debug|Win32
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Release|x64.ActiveCfg = Release|x64
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Release|x64.Build.0 = Release|x64
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Release|x86.ActiveCfg = Release|Win32
-		{60A16821-8AFC-4410-A107-7454B466ACE0}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0CCF6E10-AB37-436A-A8AF-46C2651A9683}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+
+int main()
+{
+    setlocale(LC_ALL, "RU");
+    //1
+    char a;
+    std::cout << "Уроки сделал? ";
+    std::cin >> a;
+    if (a == 'y' || a == 'Y')
+        std::cout << "Молодец!" << std::endl;
+
+    //2
+    int b;
+    std::cout << "Введите число: ";
+    std::cin >> b;
+    if (b < 0)
+        std::cout << "Число " << b << " отрицательное!" << std::endl;
+    //3
+    int c;
+    std::cout << "Введите число: ";
+    std::cin >> c;
+    if (c%2 == 0)
+        std::cout << "Число " << c << " чётное!" << std::endl;
+    //4
+    int v;
+    std::cout << "Введите число: ";
+    std::cin >> v;
+    if(v % 10 == 5)
+        std::cout << "Число " << v << " заканчивается на 5!" << std::endl;
+    //5
+    int n;
+    std::cout << "Введите число: ";
+    std::cin >> n;
+    if(n%(n/2)==0 || n>0)
+        std::cout << "Число " << n << " подходит" << std::endl;
+    //6
+    int m;
+    std::cout << "Введите число: ";
+    std::cin >> m;
+    if (m >= 10)
+        std::cout << "Ты победил!" << std::endl;
+    //7
+    int num1, num2, num3;
+    std::cout << "Введите число: ";
+    std::cin >> num1;
+    std::cin >> num2;
+    std::cin >> num3;
+    if (num1 + num2 > num3 && num1 + num3 > num2 && num2 + num3 > num1)
+        std::cout << "Треугольник существует." << std::endl;
+    //8
+    int x, y;
+    std::cout << "Введите число: ";
+    std::cin >> x;
+    std::cout << "Введите число: ";
+    std::cin >> y;
+    if (x > 0 && y > 0)
+        std::cout << "Точка находится в первой четверти." << std::endl;
+    if (x < 0 && y > 0)
+        std::cout << "Точка находится во второй четверти." << std::endl;
+    if (x < 0 && y < 0)
+        std::cout << "Точка находится в третьей четверти." << std::endl;
+    if (x > 0 && y < 0)
+        std::cout << "Точка находится в четвертой четверти." << std::endl;
+    //9
+    int z, c;
+    std::cout << "Введите первое число: ";
+    std::cin >> z;
+    std::cout << "Введите второе число: ";
+    std::cin >> c;
+    if (z%c == 0)
+        std::cout << z << " делится на " << c << std::endl;
+    //10
+    int number;
+    std::cout << "Введите число: ";
+    std::cin >> number;
+    int a1, b1, c1;
+    a1 = number % 10;
+    b1 = (number % 100) / 10;
+    c1 = number / 100;
+    int summ = a1 + b1 + c1;
+    if (summ > 9)
+        std::cout << "Сумма цифр: " << summ;
+}
