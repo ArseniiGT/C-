@@ -1,1 +1,81 @@
+#include <iostream>
 
+int main()
+{
+    //1
+    std::cout << "Do you believe in fate, Neo?\n";
+    std::cout << "No.\n";
+    std::cout << "Why?\n";
+    std::cout << "Unpleasent thinking, what something manipulating with you.\n";
+    
+    //2
+    int a = 5;
+    int b = 8;
+    int Pr = a + b;
+    int Sp = a * b;
+    std::cout << "Perimetr = " << Pr << std::endl;
+    std::cout << "Plochat = " << Sp << std::endl;
+
+    //3
+    int price = 3500;
+    int weekend = 4000;
+
+    int total_price = (price * 4) + (weekend * 2);
+    std::cout << "Total price = " << total_price << std::endl;
+
+    //4
+    int case2 = 15;
+    int sumka = 10;
+    float kolyaska = 5.5;
+    float total = (float)case2*2 + sumka + kolyaska;
+    std::cout << "Total weight = " << total << std::endl;
+
+    //5
+    int num1, num2;
+    num1 = 5;
+    num2 = 2;
+    int sum, raz, proiz;
+    float chas;
+    sum = num1 + num2;
+    raz = num1 - num2;
+    proiz = num1 * num2;
+    chas = (float)num1 / num2;
+    std::cout << "Summa = " << sum << std::endl;
+    std::cout << "Raznost = " << raz << std::endl;
+    std::cout << "Proizvedenie = " << proiz << std::endl;
+    std::cout << "Chastnost = " << chas << std::endl;
+
+     //6
+    int Sasha = 1;
+    int Misha = 1;
+    int Vanya = 0;
+    int S_or_V = Sasha * Vanya;
+
+    if (S_or_V == 0)
+        std::cout << "False " << S_or_V << std::endl;
+    else (Misha == 1);
+        std::cout << "True " << Misha << std::endl;
+
+     //7
+        int cost;  
+        int discount;
+        std::cout << "Price = ";
+        std::cin >> cost; 
+        std::cout << "Discount = ";
+        std::cin >> discount;
+        int DisPrice = cost - (discount*cost/100);
+        std::cout << "Price = " << cost << std::endl;
+        std::cout << "Discount = " << discount << std::endl;
+        std::cout << "Price with discount = " << DisPrice << std::endl;
+        
+     //8
+        int cost2;  
+        int discount2;
+        std::cout << "Price = ";
+        std::cin >> cost2;
+        std::cout << "Discount = ";
+        std::cin >> discount2;
+        float DisPrice2 = cost2 - (discount2*cost2/100);
+        std::cout << "Price = " << cost2 << std::endl;
+        std::cout << "Discount = " << discount2 << std::endl;
+        std::cout << "Price with discount = " << DisPrice2 << std::endl;
