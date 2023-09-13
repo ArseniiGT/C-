@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+        double a,b;
+        std::cin >> a;
+        std::cin >> b;
+        std::cout << "сумма: " << a+b << std::endl;
+        std::cout << "разность: " << a-b << std::endl;
+        std::cout << "произведение: " << a*b << std::endl;
+        std::cout << "частное: " << a/b << std::endl;
+
+    return 0;
+}
