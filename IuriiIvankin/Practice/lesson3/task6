@@ -1,0 +1,22 @@
+#include <iostream>
+#include <math.h>
+
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+    int a,b,c,x1 = 0,x2 = 0, disc = 0;
+    std::cin >> a;
+    std::cin >> b;
+    std::cin >> c;
+    disc = b*b-4*a*c;
+    if (disc>0)
+    {
+        std::cout << "x1 = " << (x1 = (-b + sqrt(disc))/(2*a)) << std::endl;
+        std::cout << "x2 = " << (x2 = (-b - sqrt(disc))/(2*a));
+    }
+    else if (disc == 0)
+        std::cout << "x = " << (x1 = (-b) / 2*a);
+    else
+        std::cout << "корней нет";
+    return 0;
+}
