@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+    std::cout << "введите сумму покупки: ";
+    double total_price;
+    std::cin >> total_price;
+    if (total_price>1000)
+    {
+        std::cout << "Ваша сумма покупки свыше 1000 рублей! Вам полагается скидка 10 процентов. Вы у нас первый раз?" << std::endl;
+        char answer;
+        std::cin >> answer;
+        if (answer == 'y')
+        {
+            total_price = total_price * 0.85;
+        }
+        else
+            total_price = total_price * 0.9;
+    }
+    std::cout << "Сумма к оплате: " << total_price;
+    return 0;
+}
