@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+        int total_cost, discount;
+        discount = 5;
+        std::cout << "Введите стоимость покупки: ";
+        std::cin >> total_cost;
+        std::cout << std::fixed << std::setprecision(2) << std::setw(13) << "Цена с скидкой: "
+        << total_cost - (total_cost*discount/100);
+
+    return 0;
+}
