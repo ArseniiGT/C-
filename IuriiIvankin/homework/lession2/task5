@@ -9,7 +9,7 @@ int main() {
         std::cout << "Введите стоимость покупки: ";
         std::cin >> total_cost;
         std::cout << std::fixed << std::setprecision(2) << std::setw(13) << "Цена с скидкой: "
-        << total_cost - (total_cost*discount/100);
+        << double(total_cost) - (double(total_cost)*discount/100);
 
     return 0;
 }
