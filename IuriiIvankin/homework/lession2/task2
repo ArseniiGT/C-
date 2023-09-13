@@ -1,0 +1,16 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    setlocale(LC_ALL, "RUS");
+
+        int laptop_price = 30000;
+        int armchair_price = 15000;
+        int printer_price = 9750;
+        int paper_price = 345;
+        int discount = 5;
+        double total_cost = laptop_price + armchair_price + printer_price + paper_price*5;
+        std::cout << "Цена с скидкой: "<< std::fixed << std::setprecision(2) << std::setw(13) << total_cost - (total_cost*discount/100);
+
+    return 0;
+}
