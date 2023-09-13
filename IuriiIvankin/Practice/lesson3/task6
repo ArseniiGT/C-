@@ -5,8 +5,11 @@
 int main() {
     setlocale(LC_ALL, "RUS");
     int a,b,c,x1 = 0,x2 = 0, disc = 0;
+    std::cout << "а = ";
     std::cin >> a;
+    std::cout << "b = ";
     std::cin >> b;
+    std::cout << "c = ";
     std::cin >> c;
     disc = b*b-4*a*c;
     if (disc>0)
