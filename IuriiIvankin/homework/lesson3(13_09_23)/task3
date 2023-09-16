@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    char answer;
+    std::cout << "Желаете блюдо дня?" << std::endl;
+    std::cin >> answer;
+    if (answer == 'y')
+        std::cout << "Заказано блюдо дня";
+    else
+    {
+        std::cout << "Желаете бизнес-ланч?" << std::endl;
+        std::cin >> answer;
+        if (answer == 'y')
+        {
+            std::cout << "Заказан бизнес-ланч";
+        }
+        else
+            std::cout << "Основное меню";
+    }
+    return 0;
+}
