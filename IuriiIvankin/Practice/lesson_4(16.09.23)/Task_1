@@ -1,0 +1,30 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int n;
+    std::cin >>n;
+    switch(n)
+    {
+        case 1:
+            std::cout << "Большой";
+            break;
+        case 2:
+            std::cout << "Указательный";
+            break;
+        case 3:
+            std::cout << "Средний";
+            break;
+        case 4:
+            std::cout << "Безымянный";
+            break;
+        case 5:
+            std::cout << "Мизинец";
+            break;
+        default:
+            std::cout << "Error";
+    }
+
+    return 0;
+}
