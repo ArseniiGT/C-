@@ -1,0 +1,69 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int spec, course;
+    std::cout << "Введите на какой специальности обучается студент (1-programming, 2- data science, 3- web design): ";
+    std::cin >> spec;
+    std::cout << "Введите на каком курсе студент: ";
+    std::cin >> course;
+    switch (spec)
+    {
+        case 1:
+            switch (course)
+            {
+                case 1:
+                    std::cout << "10:00";
+                    break;
+                case 2:
+                    std::cout << "11:00";
+                    break;
+                case 3:
+                    std::cout << "12:00";
+                    break;
+                default:
+                    std::cout << "Error";
+                    break;
+            }
+            break;
+        case 2:
+            switch (course)
+            {
+                case 1:
+                    std::cout << "13:00";
+                    break;
+                case 2:
+                    std::cout << "14:00";
+                    break;
+                case 3:
+                    std::cout << "15:00";
+                    break;
+                default:
+                    std::cout << "Error";
+                    break;
+            }
+            break;
+        case 3:
+            switch (course)
+            {
+                case 1:
+                    std::cout << "16:00";
+                    break;
+                case 2:
+                    std::cout << "17:00";
+                    break;
+                case 3:
+                    std::cout << "18:00";
+                    break;
+                default:
+                    std::cout << "Error";
+                    break;
+            }
+            break;
+        default:
+            std::cout << "Error";
+            break;
+    }
+    return 0;
+}
