@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int order_cost;
+    std::cout << "Введите стоимость заказ: ";
+    std::cin >> order_cost;
+    if (order_cost > 1000)
+        std::cout << "Доставка бесплатно.";
+    else
+    {
+        int answer = 0;
+        std::cout << "1. Самовывоз." << std::endl << "2. Доставка курьером." << std::endl;
+        std::cin >> answer;
+        while((answer != 1) && (answer != 2))
+        {
+            std::cout << "Выбурети либо 1 либо 2." << std::endl << "1. Самовывоз." << std::endl << "2. Доставка курьером." << std::endl;
+            std::cin >> answer;
+        }
+        if (answer == 1)
+            std::cout << "Стоимость самовывоза 100 рублей, итоговая стоимость: " << order_cost + 100 << " рублей";
+        else
+            std::cout << "Стоимость доставки 300 рублей, итоговая стоимость: " << order_cost + 300 << " рублей";
+    }
+    return 0;
+}
