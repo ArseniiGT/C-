@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int numbers, counter=0;
+    std::cin >> numbers;
+    while(numbers != 0)
+    {
+        std::cin >> numbers;
+        if (numbers%3==0 && numbers%10 == 5)
+        counter++;
+    }
+    std::cout << counter;
+    return 0;
+}
