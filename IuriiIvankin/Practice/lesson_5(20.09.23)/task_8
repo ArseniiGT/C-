@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int n, counter = 0;
+    std::cout << "Введите число больше единицы: " << std::endl;
+    std::cin >> n;
+    while (n<=1)
+    {
+        std::cout << "Введите число больше единицы!" << std::endl;
+        std::cin >> n;
+    }
+    do {
+        counter++;
+        std::cout <<  counter << std::endl;
+    } while(n - counter != 0);
+    return 0;
+}
