@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int answer;
+    std::cout << "Сколько будет 2+2?" << std::endl;
+    std::cin >> answer;
+    while (answer != 4)
+    {
+        std::cout << "Нет! Попробуй еще раз!" << std::endl;
+        std::cin >> answer;
+    }
+    std::cout << "Правильно!" << std::endl;
+    return 0;
+}
