@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int a, b;
+    std::cout << "Введите число а: " << std::endl;
+    std::cin >> a;
+    std::cout << "Введите число b, которое больше числа а: " << std::endl;
+    std::cin >>  b;
+    while (a >= b)
+    {
+        std::cout << "число b должно быть больше чем а!" << std::endl;
+        std::cin >> b;
+    }
+    do
+    {
+        std::cout << a << std::endl;
+        a++;
+    } while (a <= b);
+    return 0;
+}
