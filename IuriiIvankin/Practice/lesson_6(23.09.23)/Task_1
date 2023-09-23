@@ -3,7 +3,7 @@
 int main() {
 
     setlocale(LC_ALL, "ru");
-    int arr_size = 10;
+    int arr_size = 20;
     int arr[arr_size];
     for (int i = 0; i < arr_size; ++i)
     {
