@@ -1,0 +1,46 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int arr_size = 5;
+    int arr1[arr_size], arr2[arr_size], arr3[arr_size];
+    int sum =0;
+    std::cout << "Введите 5 элементов первого массива через пробел: ";
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cin >> arr1[i];
+    }
+    std::cout << "Введите 5 элементов второго массива через пробел: ";
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cin >> arr2[i];
+    }
+    for (int i = 0; i < arr_size; ++i)
+    {
+        if (arr1[i] >= arr2[i])
+            arr3[i] = arr1[i];
+        else
+            arr3[i] = arr2[i];
+        sum += arr3[i];
+    }
+
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout<< arr1[i] << ' ';
+    }
+    std::cout << std::endl;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout<< arr2[i] << ' ';
+    }
+    std::cout << std::endl;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout<< arr3[i] << ' ';
+    }
+    std::cout << std::endl;
+    std::cout << sum;
+
+    return 0;
+}
