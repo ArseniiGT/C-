@@ -1,0 +1,25 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    int arr_size = 11;
+    int arr[arr_size];
+    int tmp;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cin >> arr[i];
+    }
+    for (int i = 0; i < arr_size/2; ++i)
+    {
+        tmp = arr[i];
+        arr[i] = arr[arr_size-i-1];
+        arr[arr_size-i-1] = tmp;
+    }
+
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+    return 0;
+}
