@@ -1,0 +1,26 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    const int arr_size = 3;
+    setlocale(LC_ALL, "ru");
+    int arr[arr_size][arr_size];
+    int tmp = 1;
+    int sum = 0;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        for (int j = 0; j < arr_size; ++j)
+        {
+            arr[i][j] = tmp;
+            tmp++;
+            if(i == j)
+            {
+                sum += arr[i][j];
+            }
+        }
+    }
+    std::cout << sum;
+
+
+    return 0;
+}
