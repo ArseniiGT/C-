@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    const int arr_size = 3;
+    setlocale(LC_ALL, "ru");
+    int arr[arr_size][arr_size];
+    int tmp = 1;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        for (int j = 0; j < arr_size; ++j)
+        {
+            arr[i][j] = tmp;
+            tmp++;
+        }
+    }
+    for (int i = 0; i < 3; ++i)
+    {
+        for (int j = 0; j < 3; ++j)
+        {
+            if ((i == (arr_size)/2) && (j == (arr_size)/2))
+            {
+                std::cout << arr[i][j];
+            }
+        }
+
+    }
+
+    return 0;
+}
