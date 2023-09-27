@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    const int arr_size = 10;
+    int arr[arr_size];
+    int tmp = 0;
+    for (int i = 2; i <= arr_size*2; i += 2)
+    {
+        arr[tmp] = i;
+        std::cout << arr[tmp] << std::endl;
+        tmp++;
+    }
+
+    return 0;
+}
