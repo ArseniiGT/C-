@@ -1,0 +1,27 @@
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    const int arr_size = 10;
+    int arr[arr_size];
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << "Введите " << i+1 << " элемент массива: ";
+        std::cin >> arr[i];
+    }
+    std::cout << std::endl;
+    int key;
+    std::cout << "Введите искомое значение: ";
+    std::cin >> key;
+
+    for (int i = 0; i < arr_size; ++i)
+    {
+        if (key == arr[i])
+        {
+            std::cout << i+1 << " Элемент массива";
+        }
+    }
+
+    return 0;
+}
+
