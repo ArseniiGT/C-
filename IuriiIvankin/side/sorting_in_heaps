@@ -1,0 +1,73 @@
+// Реализация пирамидальной сортировки на C++
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+void change_pos(int arr[], int arr_size, int i)
+{
+    int min = i;
+    int left_root = i*2+1;
+    int right_root = i*2+2;
+    if (left_root < arr_size && arr[min] > arr[left_root])
+        min = left_root;
+    if (right_root < arr_size && arr[min] > arr[right_root])
+        min = right_root;
+    if (min != i)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = tmp;
+        change_pos(arr, arr_size, min);
+    }
+}
+
+void sort(int arr[], int arr_size)
+{
+    for (int i = arr_size/2-1; i >= 0 ; i--)
+    {
+        change_pos(arr, arr_size,i);
+    }
+    for (int i = arr_size-1; i > 0 ; i--)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[0];
+        arr[0] = tmp;
+        change_pos(arr, i, 0);
+    }
+}
+
+void rand_gen(int arr[], int arr_size, int max_range)
+{
+    srand(time(NULL));
+    for (int i = 0; i < arr_size; ++i)
+    {
+        arr[i] =  (rand()%max_range);
+    }
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int arr_size, max_range;
+    std::cout << "Сколько элементов будет в массиве: ";
+    std::cin >> arr_size;
+    std::cout << "Диапазон генерации: ";
+    std::cin >> max_range;
+    int *arr = new int[arr_size];
+    rand_gen(arr, arr_size, max_range);
+    std::cout << "Массив: \n";
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
+    std::cout << "Отсортированный массив: \n";
+    sort(arr, arr_size);
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+}
+
+
+
