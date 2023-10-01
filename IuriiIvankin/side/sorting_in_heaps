@@ -1,4 +1,4 @@
-// Реализация пирамидальной сортировки на C++
+// Сортировка кучей
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
