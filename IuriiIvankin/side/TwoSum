@@ -1,0 +1,104 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+void change_pos (int arr[], int arr_size, int i)
+{
+    int max = i;
+    int left_root = i * 2 + 1;
+    int right_root = i * 2 + 2;
+    if (left_root < arr_size && arr[max] < arr[left_root])
+    {
+        max = left_root;
+    }
+    if (right_root < arr_size && arr[max] < arr[right_root])
+    {
+        max = right_root;
+    }
+    if(max != i)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[max];
+        arr[max]=tmp;
+        change_pos(arr, arr_size, max);
+    }
+}
+
+void sort(int arr[], int arr_size)
+{
+    for (int i = arr_size/2-1; i >= 0; i--)
+    {
+        change_pos(arr, arr_size, i);
+    }
+    for (int i = arr_size-1; i > 0; i--)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[0];
+        arr[0] = tmp;
+        change_pos(arr, i, 0);
+    }
+}
+
+void rand_gen(int arr[], int arr_size)
+{
+    srand(time(NULL));
+    for (int i = 0; i < arr_size; ++i)
+    {
+        arr[i] =  rand()%20;
+    }
+}
+
+void TwoSum(int arr[], int arr_size, int n)
+{
+    int left_side;
+    int right_side;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        left_side = i+1;
+        right_side = arr_size-1;
+        int second_n = n - arr[i];
+        while (left_side <= right_side)
+        {
+            int mid = (left_side + right_side) / 2;
+            if (arr[mid] == second_n)
+            {
+                std::cout << i << " = " << arr[i] << std::endl << mid << " = " << arr[mid] << std::endl;
+                break;
+            }
+            else if (second_n > arr[mid])
+                left_side = mid + 1;
+            else if (second_n < arr[mid])
+                right_side = mid - 1;
+        }
+    }
+}
+
+int main()
+{
+    const int arr_size = 10;
+    int arr[arr_size];
+    for (int i = 0; i < arr_size; ++i)
+    {
+        rand_gen(arr, arr_size);
+    }
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
+    sort(arr, arr_size);
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+    std::cout << std::endl;
+
+    int n;
+    std::cin >> n;
+
+    TwoSum(arr,arr_size, n);
+
+}
+
+
+
