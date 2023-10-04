@@ -80,7 +80,7 @@ int main()
     int arr_size;
     std::cout << "Введите длину массива: ";
     std::cin >> arr_size;
-    int arr[arr_size];
+    int *arr = new int [arr_size];
     for (int i = 0; i < arr_size; ++i)
     {
         rand_gen(arr, arr_size);
