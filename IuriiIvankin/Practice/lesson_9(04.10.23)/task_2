@@ -1,0 +1,42 @@
+#include <iostream>
+
+
+int reading(int, int);
+int comp_creat(int, int);
+
+void reading(int arr[], int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        std::cin >> arr[i];
+    }
+}
+
+int comp_creat(int a, int b)
+{
+    if (a >= b)
+        return a;
+    else
+        return b;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    const int arr_size = 10;
+    int arr1[arr_size];
+    int arr2[arr_size];
+    int arr3[arr_size];
+    std::cout << "Введите 10 элементов первого массива через пробел: ";
+    reading(arr1, arr_size);
+    std::cout << "Введите 10 элементов второго массива через пробел: ";
+    reading(arr2, arr_size);
+    for (int i = 0; i < arr_size; ++i)
+    {
+        arr3[i] = comp_creat(arr1[i], arr2[i]);
+    }
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cout << arr3[i] << ' ';
+    }
+}
