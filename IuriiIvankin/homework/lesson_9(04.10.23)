@@ -1,0 +1,32 @@
+#include <iostream>
+
+void read(int, int);
+int max(int, int);
+
+void read(int arr[], int arr_size)
+{
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cin >> arr[i];
+    }
+}
+
+int max(int arr[], int arr_size)
+{
+    int tmp = arr[0];
+    for (int i = 1; i < arr_size; ++i)
+    {
+        if (arr[i] > tmp)
+            tmp = arr[i];
+    }
+    return tmp;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    const int arr_size = 10;
+    int arr[arr_size];
+    read(arr, arr_size);
+    std::cout << max(arr, arr_size);
+}
