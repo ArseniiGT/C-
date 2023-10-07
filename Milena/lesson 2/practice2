@@ -1,0 +1,119 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+
+
+    //1
+    char y;
+    std::cout << "Уроки сделаны?" << std::endl;
+    std::cin >> y;
+
+    if (y=='y') {
+
+        std::cout << "Молодец!" << std::endl;
+    }
+
+
+    //2
+
+    int b;
+    std::cout << "Введите число:" << std::endl;
+    std::cin >> b;
+
+    if (b<0) {
+        std::cout << "Число - отрицательное" << std::endl;
+    }
+    else {
+        std::cout << "Число - положительное" << std::endl;
+    }
+
+    //3
+    int num;
+    std::cout << "Введите число: " << std::endl;
+    std::cin >> num;
+    
+
+    if (num %2 ==0) {
+        std::cout << "Число чётное" << std::endl;
+    }
+    else {
+
+        std::cout << "Число нечётное" << std::endl;
+    }
+
+    //4
+    int num;
+    std::cout << "Введите число: " << std::endl;
+    std::cin >> num;
+
+    if (num % 10==5) {
+        std::cout << "Число оканчивается на 5" << std::endl;
+            
+    }
+    else {
+        std::cout << "Число не оканчивается на 5" << std::endl;
+    }
+
+    //5
+    int num1;
+    std::cout << "Введите число: " << std::endl;
+    std::cin >> num1;
+
+    if (num1 % 2 == 0 && num1 > 0) {
+        std::cout << "Число подходит" << std::endl;
+    }
+
+
+    //6
+    int ochkov;
+    std::cout << "Количество очков: " << std::endl;
+    std::cin >> ochkov;
+
+    if (ochkov >= 10) {
+        std::cout << "Ты победил!" << std::endl;
+    }
+    else {
+        std::cout << "Ты проиграл ;(" << std::endl;
+    }
+
+
+    //7
+int x;
+int y;
+int z;
+std::cout << "Введите стороны треугольников: " << std::endl;
+std::cin >> x;
+std::cin >> y;
+std::cin >> z;
+
+if ((x+y)>z && (y+z)>x && (x+z)>y){
+    std::cout << "Треугольник может существовать" << std::endl;
+}
+else {
+    std::cout << "Треугольник не может существовать" << std::endl;
+}
+
+
+
+    //8
+
+
+    //9
+int a;
+int b;
+std::cout << "Введите числа: ";
+std::cin >> a;
+std::cin >> b;
+
+if (a%b==0) {
+    std::cout << "Делится" << std::endl;
+}
+else {
+    std::cout << "Не делится" << std::endl;
+}
+
+    //10
+
+
+}
