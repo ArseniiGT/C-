@@ -1,0 +1,71 @@
+#include <iostream>
+
+int main() {
+
+    setlocale(LC_ALL, "ru");
+    //1 
+    std::cout << "- Ты веришь в судьбу, Нео?\n"
+        "- Нет.\n"
+        "- Почему?\n"
+        "- Неприятно думать, что тобой манипулируют.\n";
+
+    //2
+    int a = 5;
+    int b = 8;
+    int P = 2 * (a + b);
+    int S = a * b;
+
+    std::cout << "\nP = " << P << std::endl;
+    std::cout << "S = " << S << std::endl;
+
+    //3
+    int e = 3500;
+    int v = 4000;
+    int u = 4 * e + 2 * v;
+
+    std::cout << "\nСтоимость всего проживания = " << u << std::endl;
+
+
+    //4
+    int chem1 = 15;
+    int chem2 = 15;
+    int sumka = 10;
+    float klsk = 5.5;
+    float all = 2 * chem1 + sumka + klsk;
+
+    std::cout << "\nОбщий вес багажа = " << all << std::endl;
+
+    //5
+    int a1 = 5;
+    int b1 = 2;
+    std::cout << "\nСумма цифр:" << a1+b1 << std::endl;
+    std::cout << "\nРазность цифр:" << a1 - b1 << std::endl;
+    std::cout << "\nПроизведение цифр:" << a1 * b1 << std::endl;
+    std::cout << "\nЧастность цифр:" << (float) a1 / b1 << std::endl;
+
+        //6
+        int M = 1;
+            int Sh = 1;
+            int V = 0;
+
+            std::cout << ((Sh == 1) || (V == 1) && (M == 1)) << std::endl;
+
+
+        //7
+            int cena = 100;
+            int skidka = 34;
+            std::cout << "Цена: " << cena << std::endl;
+            std::cout << "Скидка: " << skidka << std::endl;
+            std::cout << "Цена со скидкой: " << cena - skidka << std::endl;
+
+
+        //8
+            int cena1 = 101;
+            int skidka1 = 50;
+            double cena2 = (double)101 * 50 / 100;
+            std::cout << "\nЦена: " << cena1 << std::endl;
+            std::cout << "Скидка: " << skidka1 << std::endl;
+            std::cout << "Цена со скидкой: " << cena2 << std::endl;
+
+
+}
