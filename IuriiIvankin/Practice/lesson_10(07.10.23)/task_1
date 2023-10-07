@@ -29,7 +29,7 @@ bool foo(int a, int b)
 
 bool victory(int n)
 {
-    if(points > n)
+    if(points >= n)
     {
         return true;
     }
