@@ -1,1 +1,52 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+
+    //1
+    std::cout << "-Когда я добрался до них, мы вступили в агрессивные переговоры.\n";
+    std::cout << "-Агрессивные переговоры? Это как?\n";
+    std::cout << "-Это переговоры на световых мечах.\n";
+       
+    //2
+    int notebook = 30000;
+    int computer = 15000;
+    int printer = 9750;
+    int paper = 1725;
+    float skidka = 0.95;
+    float allsum = (30000 + 15000 + 9750 + 1725) * 0.95;
+    std::cout << "Общая сумма с учётом скидки: " << (30000+15000+9750+1725)*0.95 << std::endl;
+
+
+    //3
+    int a = 121;
+    int b = 11;
+    std::cout << "Сумма: " << a + b << std::endl;
+    std::cout << "Разность" << a - b << std::endl;
+    std::cout << "Произведение" << a * b << std::endl;
+    std::cout << "Деление" << a / b << std::endl;
+
+
+    //4
+    int a1;
+    int b1;
+    std::cin >> a1;
+    std::cin >> b1;
+
+    std::cout << "\nСумма: " << a1 + b1;
+    std::cout << "\nРазность: " << a1 - b1;
+    std::cout << "\nПроизведение: " << a1 * b1;
+    std::cout << "\nДеление: " << a1 / b1;
+    
+
+    //5
+    int c;
+    int s = 5;
+    std::cout << "Стоимость покупки: " << std::endl;
+    std::cin >> c;
+    std::cout << "Стоимость покупки с учётом скидки: " << c * (100-5)/100 << std::endl;
+
+    return 0;
+
+}
 
