@@ -1,0 +1,305 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    //1
+    int a;
+    cout << "Номер пальца" << endl;
+    cin >> a;
+
+        switch (a) {
+        case 1:
+            cout << "Большой" << endl;
+            break;
+        case 2:
+            cout << "Указательный" << endl;
+            break;
+        case 3:
+            cout << "Средний" << endl;
+            break;
+        case 4:
+            cout << "Безымянный" << endl;
+            break;
+        case 5:
+            cout << "Мизинец" << endl;
+            break;
+        default:
+            cout << "Error" << endl;
+            break;
+        }
+    
+
+    //2
+    int b;
+
+    cout << "Оценка" << endl;
+    cin >> b;
+
+    switch (b) {
+    case 2:
+        cout << "Неудовлетворительно" << endl;
+        break;
+    case 3:
+        cout << "Удовлетворительно" << endl;
+        break;
+    case 4:
+        cout << "Хорошо" << endl;
+        break;
+    case 5:
+        cout << "Отлично" << endl;
+        break;
+    default:
+        cout << "Error" << endl;
+        break;
+    }
+
+
+    //3
+    double s, r;
+    char op;
+
+    cout << "Введите число" << endl;
+    cin >> s;
+    cout << "Введите знак операции" << endl;
+    cin >> op;
+    cout << "Введите число" << endl;
+    cin >> r;
+
+    switch (op) {
+    case '+':
+        s += r;
+        break;
+    case '-':
+        s -= r;
+        break;
+    case '*':
+        s *= r;
+        break;
+    case '/':
+        try {
+            if (r == 0) {
+                throw 1;
+            }
+            s /= r;
+        }
+        catch (int err) {
+            cout << "Деление на 0" << endl;
+        }
+        break;
+    default:
+        cout << "Error" << endl;
+        break;
+    }
+
+
+    //4
+
+    int c;
+    int t;
+    cout << "Выберите специальность:" << endl;
+    cout << "1. Programming" << endl;
+    cout << "2. Data science" << endl;
+    cout << "3. Web-design" << endl;
+    cin >> c; 
+    
+    switch (c) {
+    case 1:
+        cout << "Выберите группу:" << endl;
+        cin >> t;
+        if (t==1) {
+            cout << "10:00" << endl;
+            if (t == 2) {
+                cout << "11:00" << endl;
+            }
+        }
+        else if (t == 3) {
+            cout << "12:00" << endl;
+        }
+        else {
+            cout << "Invalid data" << endl;
+        }
+        break;
+    case 2:
+        cout << "Выберите группу:" << endl;
+        cin >> t;
+        if (t == 1) {
+            cout << "13:00" << endl;
+            if (t==2) {
+                cout << "14:00" << endl;
+            }
+        }
+        else if (t==3) {
+            cout << "15:00" << endl;
+        }
+        else {
+            cout << "Invalid data" << endl;
+        }
+        break;
+    case 3:
+        cout << "Выберите группу" << endl;
+        cin >> t;
+        if (t==1) {
+            cout << "16:00" << endl;
+            if (t == 2) {
+                cout << "17:00" << endl;
+            }
+        }
+        else if (t == 3) {
+            cout << "18:00" << endl;
+        }
+        else {
+            cout << "Invalid data" << endl;
+        }
+        break;
+    default:
+        cout << "Invalid data" << endl;
+        break;
+    }
+   
+
+    //5
+    
+
+
+    //6
+int d;
+cout << "В каком году появились высокоуровневые языки программирования?\n"
+"1.1949 год\n"
+"2.1965 год\n"
+"3.1987 год\n"<< endl;
+cin >> d;
+
+switch (d) {
+case 1:
+    cout << "Верно. Джон Мочли создал краткий код в 1949 году." << endl;
+    break;
+case 2:
+    cout << "Нет, раньше." << endl;
+    break;
+case 3:
+    cout << "Нет, намного раньше." << endl;
+    break;
+
+}
+
+
+
+
+
+//1
+ int k;
+ cout << "Кто является автором языка C++?\n"
+     "1.Джеймс Гослинг\n"
+     "2.Бьёрн Страуструп\n"
+     "3.Деннис Ритчи\n"<< endl;
+ cin >> k;
+
+ switch (k) {
+ case 1:
+     cout << "Ошибка" << endl;
+     break;
+ case 2:
+     cout << "Верно" << endl;
+     break;
+ case 3:
+     cout << "Ошибка" << endl;
+     break;
+ default:
+     cout << "Error" << endl;
+     break;
+ }
+
+
+
+ //2
+    int y;
+    int j;
+    cout << "Какая смена?" << endl;
+    cin >> y;
+    
+    if (y == 1) {
+        cout << "Номер урока?" << endl;
+        cin >> j;
+        switch (j) {
+        case 1:  
+            cout << "8:00" << endl;
+            break;
+        case 2:
+            cout << "8:50" << endl;
+            break;
+        case 3:
+            cout << "9:50" << endl;
+            break;
+        case 4:
+            cout << "10:50" << endl;
+            break;
+        case 5:
+            cout << "11:50" << endl;
+            break;
+        case 6:
+            cout << "12:40" << endl;
+            break;
+        }
+    }
+    else if (y==2) {
+        cout << "Номер урока?" << endl;
+        cin >> j;
+        switch (j) {
+            cin >> j;
+        case 1:
+            cout << "14:00" << endl;
+            break;
+        case 2:
+            cout << "15:50" << endl;
+            break;
+        case 3:
+            cout << "16:50" << endl;
+            break;
+        case 4:
+            cout << "17:50" << endl;
+            break;
+        case 5:
+            cout << "18:50" << endl;
+            break;
+        case 6:
+            cout << "19:40" << endl;
+            break;
+        }
+    }
+
+
+
+    //3
+    int z;
+    int v; 
+    cout << "Тип транспорта:" 
+        "1.автомобиль\n"
+        "2.поезд\n"
+        "3.самолёт\n"<< endl;
+    cin >> z;
+
+    switch (z) {
+    case 1:
+        cout << "Цена за n расстояние на автомобиле:" << endl;
+        cin >> v;
+        cout << "" << 100 * v << endl;
+        break;
+    case 2:
+        cout << "Цена за n расстояние на поезде:" << endl;
+        cin >> v;
+        cout << "" << 150 * v << endl;
+        break;
+    case 3:
+        cout << "Цена за n расстояние на самолёте:" << endl;
+        cin >> v;
+        cout << "" << 200 * v << endl;
+        break;
+    }
+
+
+
+
+}
