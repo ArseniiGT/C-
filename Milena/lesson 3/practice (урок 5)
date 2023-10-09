@@ -1,1 +1,170 @@
+#include <iostream>
+using namespace std;
 
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    //1
+    int p;
+    int s1=10;
+    int s2=5;
+    char a;
+    
+    cout << "Стоимость покупки:";
+    cin >> p;
+
+    if (p > 1000) 
+    {
+        cout << "Предоставляется скидка 10%:" << p - (100 + 100 / s1);
+
+        cout << "\nВы у нас впервые?";
+        cin >> a;
+
+        if (a == 'y') {
+
+            cout << "Дополнительная скидка 5%:" << p - (100 + 100 / s1) * (1 - s2 / 100);
+        }
+        else {
+            cout << "Без дополнительной скидки: " << p - (100 + 100 / s1);
+        }
+    }
+    else {
+        cout << "Без скидок:" << p;
+    }
+        
+    //2
+    int login;
+    int pass;
+    
+    cout << "Введите логин:";
+    cin >> login;
+         
+    if (login==123456)
+    {
+        cout << "Введите пароль:";
+        cin >> pass;
+
+        if (pass == 654321) {
+            cout << "Access is allowed.";
+           }
+        else {
+            cout << "Error password.";
+        }
+    }
+    else {
+        cout << "Error login";
+    }
+
+
+    //3
+    char n, m, v;
+
+    cout << "Вам нужны фрукты?";
+    cin >> n;
+    
+    if(n=='y') {
+        cout << "Цитрусовые?";
+        cin >> m;
+        if (m == 'y') {
+            cout << "Апельсин";
+        }
+        else {
+            cout << "Яблоки";
+        }
+    }
+    else if (n!='y') {
+        cout << "Вам нужны корнеплоды?";
+        cin >> v;
+        if (v=='y') {
+            cout << "Картофель";
+            }
+        else {
+            cout << "Капуста";
+        }
+    }
+    
+
+
+    //4
+    int w;
+    
+    cout << "Какой месяц?" << endl;
+    cin >> w;
+
+    if (w<=12 && w>0) {
+        if (w==12 || w==1 || w==2) {
+            cout << "Зима" << endl;
+        }
+        else if (w==3 || w==4 || w==5)
+        {
+            cout << "Весна" << endl;
+        }
+        else if (w==6 || w==7 || w==8)
+        {
+            cout << "Лето" << endl;
+        }
+        else if (w==9 || w==10 || w==11) {
+            cout << "Осень" << endl;
+        }
+    }
+    else {
+        cout << "Error" << endl;
+    }
+
+
+    //5
+    int r1, k1, r2, k2;
+    cin >> r1 >> k1;
+    cin >> r2 >> k2;
+    if (r1>r2 && k1>k2) {
+        cout << "" << r1-r2;
+        cout << "" << k1-k2;
+    }
+    else {
+        cout << "Error" << endl;
+    }
+
+
+
+   // 6
+
+
+
+   // 7
+    int a, b, c;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    if (a==b && a==c && b==c) {
+        cout << "Совпадают: 3" << endl;
+    }
+    else if (a==b || a==c || c==b) {
+        cout << "Совпадают: 2" << endl;
+    }
+    else {
+        cout << "Совпадают: 0" << endl;
+    }
+
+
+
+    //8
+    int n;
+    cout << "На лугу пасётся " << endl;
+    cin >> n;
+    if (n<100) {
+        if (n%10==1 && n!=11) {
+            cout << n << " Корова" << endl;
+        }
+        else if (n%10==5||n%10==6||n%10==7||n%10==8||n%10==9||n%10==0||n==11||n==12||n==13||n==14) {
+            cout << n << " Коров" << endl;
+        }
+        else {
+            cout << n <<" Коровы" << endl;
+        }
+    }
+    else {
+        cout << "Травы не хватит D:" << endl;
+    }
+
+}
