@@ -1,0 +1,32 @@
+#include <iostream>
+int F1(int);
+int F2(int);
+
+int F1(int n)
+{
+    if (n == 1)
+    return 0;
+    else
+    return F1(n-1) + n;
+}
+
+int F2(int m)
+{
+    if (m == 1)
+        return 1;
+    else
+        return F2(m-1) + m;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int n,m;
+
+    std::cout << "Введите значение n: ";
+    std::cin >> n;
+    std::cout << "Введите значение g: ";
+    std::cin >> m;
+    std::cout << "Значение F(" << n << ") + " << "G(" << m << ")= " << F1(n) + F2(m) << std::endl;
+    return 0;
+}
