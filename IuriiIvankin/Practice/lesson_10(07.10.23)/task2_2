@@ -1,0 +1,18 @@
+#include <iostream>
+int F(int n)
+{
+    if (n == 1)
+    return 1;
+    else
+    return F(n-1) * F(n-1) - F(n-1) * n + 2 * n;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int n;
+    std::cin >> n;
+    std::cout << "Введите значение n: ";
+    std::cout << "Значение F(" << n << "): " << F(n) << std::endl;
+    return 0;
+}
