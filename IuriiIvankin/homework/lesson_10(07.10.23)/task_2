@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int a, b;
+    int *a_ptr, *b_ptr;
+    std::cout << "Введите значение a: ";
+    std::cin >> a;
+    std::cout << "Введите значение b: ";
+    std::cin >> b;
+    a_ptr = &a;
+    b_ptr = &b;
+    if (a > b)
+    {
+        *a_ptr = a*3;
+        *b_ptr = b/2;
+    }
+    else
+    {
+        *a_ptr = a/2;
+        *b_ptr = b*3;
+    }
+    std::cout << "a = " << a << std::endl << "b = " << b;
+
+    return 0;
+}
