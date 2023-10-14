@@ -1,0 +1,56 @@
+#include <iostream>
+void sort(int*,int);
+void change_pos(int*,int,int);
+
+void change_pos(int* arr, int size, int i)
+{
+    int min = i;
+    int left = i*2+1;
+    int right = i*2+2;;
+    if (arr[min] > arr[left] && left < size)
+        min = left;
+    if (arr[min] > arr[right] && right < size)
+        min = right;
+    if (min != i)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = tmp;
+        change_pos(arr, size, min);
+    }
+}
+
+void sort(int* arr, int size)
+{
+    for (int i = size/2-1; i >=0 ; i--)
+    {
+        change_pos(arr,size, i);
+    }
+    for (int i = size-1; i > 0 ; i--)
+    {
+        int tmp = arr[i];
+        arr[i] = arr[0];
+        arr[0] = tmp;
+        change_pos(arr, i, 0);
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int size;
+    std::cout << "Введите размер массива: ";
+    std::cin >> size;
+    int *arr = new int[size];
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << "Введите " << i+1 << " элемент массива: ";
+        std::cin >> arr[i];
+    }
+    sort(arr, size);
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << arr[i] << ' ';
+    }
+    delete[] arr;
+    return 0;
+}
