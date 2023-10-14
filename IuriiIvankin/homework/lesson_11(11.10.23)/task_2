@@ -1,0 +1,23 @@
+#include <iostream>
+#include <fstream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::ofstream file1("f1.txt");
+    srand(time(NULL));
+    int n, arr[10];
+    for (int i = 0; i < 10; ++i)
+    {
+        n = rand()%100;
+        file1 << n << ' ';
+        arr[9-i] = n;
+    }
+    file1.close();
+    std::ofstream file2("f2.txt");
+    for (int i = 0; i < 10; ++i)
+    {
+        file2 << arr[i] << ' ';
+    }
+    file2.close();
+    return 0;
+}
