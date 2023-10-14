@@ -1,0 +1,24 @@
+#include <iostream>
+#include <fstream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::ofstream file1("f1.txt");
+    srand(time(NULL));
+    int n;
+    for (int i = 0; i < 10; ++i)
+    {
+        n = rand()%100;
+        file1 << n << ' ';
+    }
+    file1.close();
+    std::ifstream file1read("f1.txt");
+    std::ofstream file2writing("f2.txt");
+    while(file1read >> n)
+    {
+        file2writing << n*2 << ' ';
+    }
+    file1read.close();
+    file2writing.close();
+    return 0;
+}
