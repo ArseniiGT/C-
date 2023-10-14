@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int size;
+    std::cout << "Введите размер массива: ";
+    std::cin >> size;
+    int *arr = new int[size];
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << "Введите " << i+1 << " элемент массива: ";
+        std::cin >> arr[i];
+    }
+    int min = arr[0], max= arr[0];
+    for (int i = 1; i < size; ++i)
+    {
+        if (arr[i] > max)
+            max = arr[i];
+        else if(arr[i] < min)
+            min = arr[i];
+    }
+    delete[] arr;
+    std::cout <<  "Максимальное значение в массиве : " << max << std::endl;
+    std::cout <<  "Минимальное значение в массиве : " << min << std::endl;
+
+    return 0;
+}
