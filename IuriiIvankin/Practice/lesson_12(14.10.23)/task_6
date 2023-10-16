@@ -1,0 +1,60 @@
+#include <iostream>
+#include <time.h>
+void scan_arr(int*, int&);
+void size_and_sum_print(int*, int);
+void free_mem(int*);
+
+void scan_arr(int* arr, int& counter)
+{
+    bool y_n = true;
+    char answer;
+    while (y_n)
+    {
+        std::cout << "Ввести переменную?(y - да, n - нет, на латинице вводить): ";
+        std::cin >> answer;
+        switch(answer)
+        {
+            case 'y':
+                std::cout << "Введите новый элемент массива: ";
+                std::cin >> arr[counter];
+                counter++;
+                break;
+            case'n':
+                std::cout << "Добавление новых элементов массива завершено.";
+                y_n = false;
+                break;
+            default:
+                std::cout << "Некорректный ответ, либо y либо n, латиницей." << std::endl;
+        }
+    }
+}
+
+void size_and_sum_print(int* arr, int counter)
+{
+    int sum = 0;
+    int mid;
+    for (int i = 0; i < counter; ++i)
+    {
+        sum += arr[i];
+    }
+    std::cout << std::endl << "Количество элементов массива: " << counter << std::endl
+    << "Сумма элементов массива: " << sum;
+}
+
+void free_mem(int* arr)
+{
+    delete[] arr;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int *arr = new int;
+    int counter = 0;
+    scan_arr(arr, counter);
+    size_and_sum_print(arr, counter);
+    free_mem(arr);
+
+    return 0;
+}
+
