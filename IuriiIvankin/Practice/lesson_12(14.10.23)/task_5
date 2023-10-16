@@ -1,0 +1,56 @@
+#include <iostream>
+#include <time.h>
+void scan_arr(int*, int&);
+int big_mid_print(int*, int);
+void free_mem(int*);
+
+void scan_arr(int* arr, int& counter)
+{
+    int n;
+    while(true)
+    {
+        std::cout << "Введите элемент массива, либо 0 для завершения: ";
+        std::cin >> n;
+        if(n == 0)
+            break;
+        arr[counter] = n;
+        counter++;
+    }
+}
+
+int big_mid_print(int* arr, int counter)
+{
+    int sum = 0;
+    int mid;
+    for (int i = 0; i < counter; ++i)
+    {
+        sum += arr[i];
+    }
+    mid = sum/counter;
+    int big_mid = 0;
+    for (int i = 0; i < counter; ++i)
+    {
+        if (arr[i]>mid)
+            big_mid++;
+    }
+    return big_mid;
+}
+
+void free_mem(int* arr)
+{
+    delete[] arr;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int *arr = new int;
+    int counter = 0;
+    scan_arr(arr, counter);
+    std::cout << "Количество элементов массива больших чем среднее арифметическое значение всех элементов массива: ";
+    std::cout << big_mid_print(arr, counter);
+    free_mem(arr);
+
+    return 0;
+}
+
