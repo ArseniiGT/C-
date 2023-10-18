@@ -1,0 +1,35 @@
+#include <iostream>
+int n_scan(int *);
+void change(int*, int*);
+void free_mem(int*);
+
+int n_scan(int * n)
+{
+    std::cin >> *n;
+}
+
+void change(int* a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+
+void free_mem(int* arr)
+{
+    delete[] arr;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int a, b;
+    n_scan(&a);
+    n_scan(&b);
+    change(&a,&b);
+    std::cout << a << ' ' << b;
+
+    return 0;
+}
+
