@@ -1,0 +1,26 @@
+#include <iostream>
+void foo(int*);
+void free_mem(int*);
+
+void foo(int* n)
+{
+    std::cin >> *n;
+    std::cout << *n*10;
+}
+
+
+void free_mem(int* arr)
+{
+    delete[] arr;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int *n = new int;
+    foo(n);
+    free_mem(n);
+
+    return 0;
+}
+
