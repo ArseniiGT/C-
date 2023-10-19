@@ -1,0 +1,121 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+int ** arr_creat(int, int);
+void choise_scan(int **, int, int);
+void rand_gen(int **, int , int );
+void arr_scan(int**, int, int);
+void arr_print(int**, int, int);
+void free_mem(int**, int);
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int arr_lines;
+    std::cout << "Введите количество строк: ";
+    std::cin >> arr_lines;
+    int arr_columns;
+    std::cout << "Введите количество столбцов : ";
+    std::cin >> arr_columns;
+    int **arr;
+    arr = arr_creat(arr_lines, arr_columns);
+    choise_scan(arr, arr_lines, arr_columns);
+    arr_print(arr, arr_lines, arr_columns);
+    free_mem(arr, arr_lines);
+    return 0;
+}
+
+int ** arr_creat(int lines, int columns)
+{
+    int**arr = new int*[lines];
+    for (int i = 0; i < columns; ++i)
+    {
+        arr[i] = new int[columns];
+    }
+    return arr;
+}
+
+void choise_scan(int **arr, int lines, int columns)
+{
+    std::cout << "Хотите ли вы сгенерировать значения случайным образом или сами задать вручную?\n"
+                 "1. Рандом.\n"
+                 "2. Вручную.\n";
+    int answer;
+    bool yes_no = true;
+    while(yes_no)
+    {
+        std::cin >> answer;
+        switch (answer) 
+        {
+            case 1:
+                rand_gen(arr, lines, columns);
+                yes_no = 0;
+                break;
+            case 2:
+                arr_scan(arr, lines, columns);
+                yes_no = 0;
+                break;
+            default:
+                std::cout << "Введи либо 1 либо 2\n"
+                             "1. Рандом.\n"
+                             "2. Вручную.\n";
+                break;
+        }
+    }
+}
+
+
+void rand_gen(int **arr, int lines, int columns)
+{
+    int min;
+    int max;
+    std::cout << "Введите диапазон генерации\n"
+                 "от: ";
+    std::cin >> min;
+    std::cout << "до: ";
+    std::cin >> max;
+    srand(time(NULL));
+    for (int i = 0; i < lines; ++i)
+    {
+        for (int j = 0; j < columns; ++j)
+        {
+            arr[i][j] = min+rand()%max;
+        }
+    }
+}
+
+void arr_scan(int** arr, int lines, int columns)
+{
+    for (int i = 0; i < lines; ++i)
+    {
+        for (int j = 0; j < columns; ++j)
+        {
+            std::cout << "Введите элемент " << i+1 << " строки" << " и " << j+1 << " столбца: ";
+            std::cin >> arr[i][j];
+        }
+    }
+}
+
+
+
+void arr_print(int**arr, int lines, int columns)
+{
+    for (int i = 0; i < lines; ++i)
+    {
+        for (int j = 0; j < columns; ++j)
+        {
+            std::cout << arr[i][j] << ' ';
+        }
+        std::cout << std::endl;
+    }
+}
+
+void free_mem(int**arr, int lines)
+{
+    for (int i = 0; i < lines; ++i)
+    {
+        delete[]arr[i];
+    }
+    delete[]arr;
+}
