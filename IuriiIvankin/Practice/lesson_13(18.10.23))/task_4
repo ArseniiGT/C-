@@ -80,7 +80,7 @@ void rand_gen(int **arr, int lines, int columns)
     {
         for (int j = 0; j < columns; ++j)
         {
-            arr[i][j] = min+rand()%max;
+                arr[i][j] = min + (rand()%(max - min));
         }
     }
 }
