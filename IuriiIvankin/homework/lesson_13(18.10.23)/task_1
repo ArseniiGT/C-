@@ -1,0 +1,28 @@
+#include <iostream>
+
+int fun(int*a,int*b)
+{
+    *a = *a*2;
+    *b = *b*2;
+    return *a+*b;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int *a, *b;
+    a = new int;
+    b = new int;
+    std::cout << "Введите значение первой переменной: ";
+    std::cin >> *a;
+    std::cout << "Введите значение второй переменной: ";
+    std::cin >> *b;
+    std::cout << fun(a,b);
+    delete a;
+    delete b;
+    return 0;
+}
+
+
+
+
