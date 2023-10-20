@@ -3,7 +3,7 @@
 #include <time.h>
 
 int ** arr_creat(int, int);
-void choise_scan(int **, int, int);
+void choice_scan(int **, int, int);
 void rand_gen(int **, int , int );
 void arr_scan(int**, int, int);
 void arr_print(int**, int, int);
@@ -20,7 +20,7 @@ int main()
     std::cin >> arr_columns;
     int **arr;
     arr = arr_creat(arr_lines, arr_columns);
-    choise_scan(arr, arr_lines, arr_columns);
+    choice_scan(arr, arr_lines, arr_columns);
     arr_print(arr, arr_lines, arr_columns);
     free_mem(arr, arr_lines);
     return 0;
@@ -36,7 +36,7 @@ int ** arr_creat(int lines, int columns)
     return arr;
 }
 
-void choise_scan(int **arr, int lines, int columns)
+void choice_scan(int **arr, int lines, int columns)
 {
     std::cout << "Хотите ли вы сгенерировать значения случайным образом или сами задать вручную?\n"
                  "1. Рандом.\n"
