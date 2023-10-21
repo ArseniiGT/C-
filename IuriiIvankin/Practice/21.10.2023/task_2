@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+
+struct bd
+{
+    std::string firstname;
+    std::string lastname;
+    std::string phone_number;
+};
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    bd Person;
+    std::cout << "Введите имя: ";
+    std::cin >> Person.firstname;
+    std::cout << "Введите фамилию: ";
+    std::cin >> Person.lastname;
+    std::cout << "Введите номер телефона: ";
+    std::cin >> Person.phone_number;
+    std::cout << Person.firstname << ' ' << Person.lastname << ' ' << Person.phone_number;
+}
+
+
+
+
