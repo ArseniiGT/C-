@@ -1,0 +1,26 @@
+#include <iostream>
+
+
+struct bd
+{
+    int day;
+    int month;
+    int year;
+};
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    bd Person;
+    std::cout << "Введите день рождения: ";
+    std::cin >> Person.day;
+    std::cout << "Введите месяц рождения: ";
+    std::cin >> Person.month;
+    std::cout << "Введите год рождения: ";
+    std::cin >> Person.year;
+    std::cout << Person.day << ' ' << Person.month << ' ' << Person.year;
+}
+
+
+
+
