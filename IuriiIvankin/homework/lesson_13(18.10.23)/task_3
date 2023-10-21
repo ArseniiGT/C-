@@ -1,0 +1,62 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+
+void arr_creat(int size, int **arr)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        arr[i] = new int[size];
+    }
+}
+
+int **full_arr(int**arr, int size)
+{
+    srand(time(NULL));
+    for (int i = 0; i < size; ++i)
+    {
+        for (int j = 0; j < size; ++j)
+        {
+            arr[i][j] = 10+ rand()%90;
+        }
+    }
+    return arr;
+}
+
+int find_sum(int**arr, int size)
+{
+    int sum = 0;
+    for (int i = 0; i < size; ++i)
+    {
+        sum += arr[i][i];
+    }
+    return sum;
+}
+
+
+void free_mem (int **arr, int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        delete[]arr[i];
+    }
+    delete[]arr;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int size, sum;
+    std::cout << "Введите размерность матрицы: ";
+    std::cin >> size;
+    int **arr = new int*[size];
+    arr_creat(size, arr);
+    arr = full_arr(arr, size);
+    sum = find_sum(arr,size);
+    std::cout << sum;
+    free_mem(arr, size);
+}
+
+
+
+
