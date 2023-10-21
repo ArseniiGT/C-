@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+
+struct address
+{
+    int index;
+    std::string city;
+    std::string street;
+    int house_number;
+    int office_number;
+};
+
+
+struct company
+{
+    std::string name;
+    std::string tin;
+    std::string phone_number;
+    struct address location;
+};
+
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    company comp_1;
+    std::cout << "Введите название компании: ";
+    std::cin >> comp_1.name;
+    std::cout << "Введите ИНН компании: ";
+    std::cin >> comp_1.tin;
+    std::cout << "Введите номер телефона компании: ";
+    std::cin >> comp_1.phone_number;
+    std::cout << "Введите индекс компании: ";
+    std::cin >> comp_1.location.index;
+    std::cout << "Введите город компании: ";
+    std::cin >> comp_1.location.city;
+    std::cout << "Введите улицу компании: ";
+    std::cin >> comp_1.location.street;
+    std::cout << "Введите номер дома компании: ";
+    std::cin >> comp_1.location.house_number;
+    std::cout << "Введите номер офиса компании: ";
+    std::cin >> comp_1.location.office_number;
+    std::cout << "Название компании: " << comp_1.name << std::endl
+            << "ИНН компании: " << comp_1.tin << std::endl
+            << "Телефон компании: " << comp_1.phone_number << std::endl
+            << "Индекс компании: " << comp_1.location.index << std::endl
+            << "Город компании: " << comp_1.location.city << std::endl
+            << "Улица компании: " << comp_1.location.street << std::endl
+            << "Номер дома компании: " << comp_1.location.house_number << std::endl
+            << "Номер офиса компании: " << comp_1.location.office_number << std::endl;
+}
+
+
+
+
