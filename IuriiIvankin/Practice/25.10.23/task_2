@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+
+struct location
+{
+    int km;
+    int metre;
+    int centimetre;
+};
+
+struct location change_distance (struct location now, int km, int metre, int centimetre)
+{
+    int k, m , c;
+    struct location result = {now.km, now.metre, now.centimetre};
+
+    if ((result.centimetre + centimetre) >= 100)
+    {
+        c = result.centimetre += centimetre;
+        result.metre+=c/100;
+        result.centimetre = c%100;
+    }
+    else
+        result.centimetre += centimetre;
+    if ((result.metre + metre) >= 1000)
+    {
+        m = (result.metre += metre);
+        result.km+=m/1000;
+        result.metre = m%1000;
+    }
+    else
+        result.metre +=metre;
+    result.km += km;
+
+    return  result;
+};
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    location now;
+    int km, metre, cm;
+    std::cout << "Введите текущие км";
+    std::cin >> now.km;
+    std::cout << "Введите текущие метры";
+    std::cin >> now.metre;
+    std::cout << "Введите текущие сантиметры";
+    std::cin >> now.centimetre;
+
+    std::cout << "Введите сколько км добавить";
+    std::cin >> km;
+    std::cout << "Введите сколько метров добавить";
+    std::cin >> metre;
+    std::cout << "Введите сколько см добавить";
+    std::cin >> cm;
+    struct location new_loc = change_distance(now, km, metre, cm);
+
+    std::cout << new_loc.km << ' ' << new_loc.metre << ' ' << new_loc.centimetre;
+}
+
+
+
+
