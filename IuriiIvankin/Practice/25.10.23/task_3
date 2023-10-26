@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+struct employee
+{
+    std::string name;
+    int age;
+    int salary;
+};
+
+struct employee scan(struct employee person);
+void print (struct employee person);
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    employee one;
+    one = scan(one);
+    print(one);
+}
+
+
+struct employee scan(struct employee person)
+{
+    employee result;
+    std::cout << "Введите имя сотрудника: ";
+    std::cin >> result.name;
+    std::cout << "Введите возраст сотрудника: ";
+    std::cin >> result.age;
+    std::cout << "Введите зарплату сотрудника: ";
+    std::cin >> result.salary;
+    return result;
+}
+
+void print (struct employee person)
+{
+    std::cout << "Имя сотрудника: " << person.name << std::endl;
+    std::cout << "Возраст сотрудника: " << person.age << std::endl;
+    std::cout << "Зарплата сотрудника: " << person.salary << std::endl;
+}
