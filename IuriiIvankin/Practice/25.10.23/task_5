@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+
+struct point
+{
+    int x;
+    int y;
+    int z;
+};
+
+struct point scan(char);
+void print(struct point, char);
+
+void swap_p (point &a, point &b);
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    point a;
+    char name_a = 'a';
+    point b;
+    char name_b = 'b';
+    a = scan(name_a);
+    b = scan(name_b);
+    print(a, name_a);
+    print(b, name_b);
+    swap_p(a,b);
+    print(a, name_a);
+    print(b, name_b);
+
+    return 0;
+}
+
+struct point scan(char name)
+{
+    point result;
+    std::cout << "Введите x для координат точки "  << name << " : ";
+    std::cin >> result.x;
+    std::cout << "Введите y для координат точки "  << name << " : ";
+    std::cin >> result.y;
+    std::cout << "Введите z для координат точки "  << name << " : ";
+    std::cin >> result.z;
+    return result;
+}
+
+void print(struct point res, char name)
+{
+    std::cout << "x для  точки " << name << " равен: " << res.x << std::endl;
+    std::cout << "y для  точки " << name << " равен: " << res.y << std::endl;
+    std::cout << "z для  точки " << name << " равен: " << res.z << std::endl;
+}
+
+void swap_p (point &a, point &b)
+{
+    std::swap(a.x, b.x);
+    std::swap(a.y, b.y);
+    std::swap(a.z, b.z);
+}
