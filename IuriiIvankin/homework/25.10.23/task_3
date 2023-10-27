@@ -1,0 +1,99 @@
+#include <iostream>
+
+struct competitors
+{
+    std::string first_name;
+    std::string second_name;
+    int age;
+    int height;
+};
+
+void scan(struct competitors *tmp, int size);
+void print(struct competitors *tmp, int size);
+void teams_size(int, int&, int&);
+void com_dist(struct competitors *all, struct competitors *a_team, struct competitors *b_team, int size);
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    int size, size_a, size_b;
+    std::cout << "Введите количество участников: ";
+    std::cin >> size;
+    competitors *all = new competitors[size];
+    competitors *a_team = new competitors[size_a];
+    competitors *b_team = new competitors[size_b];
+    scan(all, size);
+    print(all, size);
+    teams_size(size, size_a,size_b);
+    com_dist(all,a_team,b_team,size);
+    std::cout << std::endl << "Размер первой команды: " <<size_a << std::endl;
+    std::cout << std::endl << "Размер второй команды:  " << size_b << std::endl;
+    std::cout << std::endl << "Первая команда: " << std::endl;
+    print(a_team, size_a);
+    std::cout << std::endl << "Вторая команда: " << std::endl;
+    print(b_team, size_b);
+    return 0;
+}
+
+void teams_size(int size, int &team_a, int &team_b)
+{
+    if (size%2 == 0)
+    {
+        team_b = size/2;
+        team_a = size/2;
+    }
+    else
+    {
+        team_b = size/2;
+        team_a = size/2+1;
+    }
+}
+
+void scan(struct competitors *tmp, int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << "Введите данные " << i+1 << " участника:" << std::endl;
+        std::cout << "Имя: ";
+        std::cin >> tmp[i].first_name;
+        std::cout << "Фамилия: ";
+        std::cin >> tmp[i].second_name;
+        std::cout << "Возраст: ";
+        std::cin >> tmp[i].age;
+        std::cout << "Рост: ";
+        std::cin >> tmp[i].height;
+    }
+}
+
+void print(struct competitors *tmp, int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        std::cout << "Имя " << i+1 << " участника: "<< tmp[i].first_name << std::endl;
+        std::cout << "Фамилия " << i+1 << " участника: "<< tmp[i].second_name << std::endl;
+        std::cout << "Возраст " << i+1 << " участника: "<< tmp[i].age << std::endl;
+        std::cout << "Рост " << i+1 << " участника: "<<tmp[i].height << std::endl;
+    }
+}
+
+void com_dist(struct competitors *all, struct competitors *a_team, struct competitors *b_team, int size)
+{
+    for (int i = 0; i < size; ++i)
+    {
+        if (i%2==0)
+        {
+            a_team[i/2].first_name = all[i].first_name;
+            a_team[i/2].second_name = all[i].second_name;
+            a_team[i/2].age = all[i].age;
+            a_team[i/2].height = all[i].height;
+        }
+        else
+        {
+            b_team[i/2].first_name = all[i].first_name;
+            b_team[i/2].second_name = all[i].second_name;
+            b_team[i/2].age = all[i].age;
+            b_team[i/2].height = all[i].height;
+        }
+    }
+}
