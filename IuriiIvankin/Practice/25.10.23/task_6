@@ -1,0 +1,62 @@
+#include <iostream>
+
+struct calculator
+{
+    double a;
+    double b;
+};
+
+int math(struct calculator tmp)
+{
+    double res;
+    bool status = true;
+    while(status)
+    {
+        char operation;
+        std::cout << "Введите тип операции(сложение, вычитание, умножение, деление): ";
+        std::cin >> operation;
+        switch (operation)
+        {
+            case '+':
+                res = tmp.a+tmp.b;
+                status = false;
+                break;
+            case '-':
+                res = tmp.a-tmp.b;
+                status = false;
+                break;
+            case '*':
+                res = tmp.a*tmp.b;
+                status = false;
+                break;
+            case '/':
+                res = tmp.a/tmp.b;
+                status = false;
+                break;
+            default:
+                std::cout << "Введен неизвестный тип операции, возможно провести следующие:\n"
+                             "сложение - знак: +\n"
+                             "вычитание - знак: -\n"
+                             "умножение - знак: *\n"
+                             "деление - знак: /\n"
+                             "Введите один из четырех: ";
+                break;
+        }
+    }
+
+    return res;
+}
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    calculator op;
+    std::cout << "Введите значение первой переменной: ";
+    std::cin >> op.a;
+    std::cout << "Введите значение второй переменной: ";
+    std::cin >> op.b;
+    std::cout << math(op);
+
+    return 0;
+}
