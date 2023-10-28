@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+
+struct caller
+{
+    std::string name;
+    int balance;
+};
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    caller one;
+    caller *ptr;
+    ptr = &one;
+    std::cout << "Введите имя: ";
+    std::cin >> ptr->name;
+    std::cout << "Введите баланс: ";
+    std::cin >> ptr->balance;
+
+    std::cout << one.name << ' ' << one.balance;
+    return 0;
+}
