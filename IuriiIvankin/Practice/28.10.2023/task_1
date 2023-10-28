@@ -19,5 +19,6 @@ int main()
     std::cin >> ptr->balance;
 
     std::cout << one.name << ' ' << one.balance;
+    delete ptr;
     return 0;
 }
