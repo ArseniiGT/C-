@@ -1,0 +1,131 @@
+#include <iostream>
+#include <string>
+
+
+struct book
+{
+    std::string name;
+    int count;
+};
+
+struct list_cell
+{
+    book thisbook;
+    list_cell* next;
+};
+
+list_cell *head = nullptr;
+
+list_cell *addend(book &tmp)
+{
+    list_cell *add = new list_cell;
+    if (add)
+    {
+        add->thisbook = tmp;
+        add->next = nullptr;
+        if (head == nullptr)
+        {
+            head = add;
+        }
+        else
+        {
+            list_cell* p = head;
+            while(p->next != nullptr)
+                p = p->next;
+            p->next = add;
+        }
+    }
+    return add;
+};
+
+list_cell *addmid(book &tmp, int &size)
+{
+    list_cell* add = new list_cell;
+    if (add)
+    {
+        add->thisbook = tmp;
+        list_cell* now = head;
+        int n;
+        std::cout << "Количество записей: " << size << "\nПосле какого элемента добавить новую запись: ";
+        std::cin >> n;
+        if (n>0 && n <= size)
+        {
+            int count = 1;
+            while (count != n)
+            {
+                now = now->next;
+                count++;
+            }
+            add->next = now->next;
+            now->next = add;
+            size++;
+            return add;
+        } else
+            std::cout << "Вы ввели значение за пределами списка.\n";
+    } else
+        std::cout << "Ошибка памяти.";
+}
+
+void print_list()
+{
+    list_cell *tmp = head;
+    while (tmp != nullptr)
+    {
+        std::cout << tmp->thisbook.name << std::endl;
+        std::cout << tmp->thisbook.count << std::endl;
+        tmp = tmp->next;
+    }
+}
+
+void free_mem()
+{
+    list_cell *tmp = head;
+    while (tmp != nullptr)
+    {
+        tmp = head->next;
+        delete head;
+        head = tmp;
+    }
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    int size;
+    std::cout << "Введите размер списка: ";
+    std::cin >> size;
+    for (int i = 0; i < size; ++i)
+    {
+        book now;
+        std::cout << "Введите название книги: ";
+        std::cin >> now.name;
+        std::cout << "Введите количество книг: ";
+        std::cin >> now.count;
+        addend(now);
+    }
+    print_list();
+    int answer;
+    std::cout << "Желаете добавить в элемент середину списка?\n"
+                 "1. Да\n"
+                 "2. Нет\n";
+    std::cin >> answer;
+    switch (answer)
+    {
+        case 1:
+        {
+            book now;
+            std::cout << "Введите название книги: ";
+            std::cin >> now.name;
+            std::cout << "Введите количество книг: ";
+            std::cin >> now.count;
+            addmid(now, size);
+        }
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+    print_list();
+    free_mem();
+    return 0;
+}
