@@ -1,0 +1,59 @@
+#include <iostream>
+
+struct date
+{
+private:
+    int year;
+    int month;
+    int day;
+
+public:
+    void set_date (int set_year, int set_month, int set_day)
+    {
+        year = set_year;
+        month = set_month;
+        day = set_day;
+    }
+    void change_date (int add_day)
+    {
+        if ((day+add_day) > 30)
+        {
+            month += ((day+add_day)/30);
+            day = (day+add_day)%30;
+            if (month > 12)
+            {
+                year+=(month/12);
+                month = month%12;
+            }
+        }
+        else
+            day+=add_day;
+    }
+    void print_date()
+    {
+        std::cout << "год: " << year << "\n"
+        << "месяц: " << month << "\n"
+        << "день: " << day;
+    }
+};
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    date today;
+    int year, month, day;
+    std::cout << "Введите год: ";
+    std::cin >> year;
+    std::cout << "Введите месяц: ";
+    std::cin >> month;
+    std::cout << "Введите день: ";
+    std::cin >> day;
+    today.set_date(year,month,day);
+    today.print_date();
+    int add_day;
+    std::cout << std::endl;
+    std::cout << "Введите сколько добавить дней: ";
+    std::cin >> add_day;
+    today.change_date(add_day);
+    today.print_date();
+    return 0;
+}
