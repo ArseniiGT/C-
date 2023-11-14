@@ -1,0 +1,49 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+class Circle
+{
+    int x, y, R;
+public:
+    static double Pi;
+    void set_center(int set_x, int set_y)
+    {
+        x = set_x;
+        y = set_y;
+    }
+    void set_radius(int set_R)
+    {
+        R = set_R;
+    }
+    double get_distance()
+    {
+        return sqrt(pow(0-x, 2)+ pow(0-y,2));
+    }
+    double get_area()
+    {
+        return Pi* pow(R,2);
+    }
+};
+double Circle::Pi=3.141592653589793;
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    Circle A;
+    int x,y,R;
+    std::cout << "Введите координаты центра круга на плоскости:\n"
+                 "x = ";
+    std::cin >> x;
+    std::cout << "y = ";
+    std::cin >> y;
+    std::cout << "Введите радиус плоскости:\n"
+                 "R = ";
+    std::cin >> R;
+    A.set_center(x,y);
+    A.set_radius(R);
+    std::cout << "Площадь круга: " << A.get_area() << std::endl;
+    std::cout << std::fixed << std::showpoint;
+    std::cout << std::setprecision(2);
+    std::cout << "Расстояние от начала координат до центра окружности: " << A.get_distance() << std::endl;
+    return 0;
+}
