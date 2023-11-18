@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::string now;
+    std::cout<< "Введите строку: ";
+    getline(std::cin,now);
+    char a;
+    std::cout<< "Введите символ: ";
+    std::cin >> a;
+    std::cout << std::count(now.begin(),now.end(), a);
+    return 0;
+}
