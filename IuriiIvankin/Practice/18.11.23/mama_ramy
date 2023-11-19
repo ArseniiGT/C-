@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+void show_message(std::string s1)
+{
+    std::cout << s1 << std::endl;
+}
+
+void show_message(std::string s1, std::string s2)
+{
+    std::cout << s1 << ' ' << s2 <<std::endl;
+}
+
+void show_message(std::string s1, std::string s2, std::string s3)
+{
+    std::cout << s1 << ' ' << s2 << ' ' << s3 << std::endl;
+}
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::string s1,s2,s3;
+    std::cout << "Введите первую строку: ";
+    std::getline(std::cin, s1);
+    std::cout << "Введите вторую строку: ";
+    std::getline(std::cin, s2);
+    std::cout << "Введите третью строку: ";
+    std::getline(std::cin, s3);
+
+    std::cout << "Первая строка: ";
+    show_message(s1);
+
+    std::cout << "Первая и вторая строки: ";
+    show_message(s1,s2);
+
+    std::cout << "Первая, вторая и третья строки: ";
+    show_message(s1,s2,s3);
+    return 0;
+}
+
