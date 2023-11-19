@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    setlocale(LC_ALL, "ru");
+    std::string now;
+    std::cout<< "Введите строку: ";
+    getline(std::cin,now);
+    int max = 0;
+    int count_tmp = 0;
+    for (int i = 0; i < now.length(); ++i)
+    {
+        if (now[i] == 'z')
+        {
+            count_tmp++;
+            if (now[i+1] != 'z')
+            {
+                if (count_tmp > max)
+                {
+                    max = count_tmp;
+                    count_tmp = 0;
+                }
+                count_tmp = 0;
+            }
+        }
+    }
+
+    std::cout << max;
+
+    return 0;
+}
+
