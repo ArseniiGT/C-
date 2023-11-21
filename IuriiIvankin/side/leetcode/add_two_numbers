@@ -1,0 +1,133 @@
+// https://leetcode.com/problems/add-two-numbers/ задача отсюда
+
+#include <iostream>
+#include <cmath>
+
+
+struct dataNode
+{
+    int number;
+    dataNode* next;
+};
+
+class list
+{
+private:
+    dataNode* head;
+public:
+    list()
+    {
+        head = nullptr;
+    }
+    void addend(int now)
+    {
+        dataNode* add = new dataNode;
+        if (add)
+        {
+            add->number = now;
+            add->next = nullptr;
+            if(head == nullptr)
+            {
+                head = add;
+            }
+            else
+            {
+                dataNode* tmp = head;
+                while (tmp->next != nullptr)
+                {
+                    tmp = tmp->next;
+                }
+                tmp->next = add;
+            }
+        }
+    }
+
+    void print_list()
+    {
+        dataNode* tmp;
+        tmp = head;
+        int count = 1;
+        while (tmp != nullptr)
+        {
+            std::cout << "Число в ячейки " << count << ": " << tmp->number << std::endl;
+            count++;
+            tmp = tmp->next;
+        }
+        delete tmp;
+    }
+    list* op_plus(list *one, list *two)
+    {
+        list three;
+        int size_one, size_two;
+        size_one = 0;
+        size_two = 0;
+        int reverse_one, reverse_two;
+        reverse_one = 0;
+        reverse_two = 0;
+        dataNode* tmp1 = one->head;
+        while (tmp1 != nullptr)
+        {
+            reverse_one += tmp1->number*(pow (10, size_one));
+            tmp1 = tmp1->next;
+            size_one++;
+        }
+        dataNode* tmp2 = two->head;
+        while(tmp2 != nullptr)
+        {
+            reverse_two += tmp2->number*(pow (10, size_two));
+            tmp2 = tmp2->next;
+            size_two++;
+        }
+        int three_list = reverse_one +reverse_two;
+        while (three_list)
+        {
+            three.addend(three_list%10);
+            three_list /= 10;
+        }
+        return &three;
+    }
+    void free_mem()
+    {
+        dataNode* tmp = head;
+        while (tmp!= nullptr)
+        {
+            tmp = tmp->next;
+            delete head;
+            head = tmp;
+        }
+    }
+};
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    list one, two, three;
+    int one_size, two_size;
+    std::cout << "Введите размер первого списка: ";
+    std::cin >> one_size;
+    std::cout << "Введите размер второго списка: ";
+    std::cin >> two_size;
+    for (int i = 0; i <  one_size; ++i)
+    {
+        int tmp;
+        std::cout << "Введите " << i+1 << " элемент первого списка: ";
+        std::cin >> tmp;
+        one.addend(tmp);
+    }
+    for (int i = 0; i <  two_size; ++i)
+    {
+        int tmp;
+        std::cout << "Введите " << i+1 << " элемент второго списка: ";
+        std::cin >> tmp;
+        two.addend(tmp);
+    }
+    std::cout << "Первый список: " << std::endl;
+    one.print_list();
+    std::cout << "Второй список: " << std::endl;
+    two.print_list();
+    three = *three.op_plus(&one, &two);
+    std::cout << "Третий список: " << std::endl;
+    three.print_list();
+    return 0;
+}
