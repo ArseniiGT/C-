@@ -79,10 +79,17 @@ public:
             size_two++;
         }
         int three_list = reverse_one +reverse_two;
-        while (three_list)
+        if (three_list == 0)
         {
-            three.addend(three_list%10);
-            three_list /= 10;
+            three.addend(0);
+        }
+        else
+        {
+            while (three_list)
+            {
+                three.addend(three_list%10);
+                three_list /= 10;
+            }
         }
         return &three;
     }
@@ -108,6 +115,7 @@ int main()
     std::cin >> one_size;
     std::cout << "Введите размер второго списка: ";
     std::cin >> two_size;
+    std::cout << std::endl;
     for (int i = 0; i <  one_size; ++i)
     {
         int tmp;
@@ -115,6 +123,7 @@ int main()
         std::cin >> tmp;
         one.addend(tmp);
     }
+    std::cout << std::endl;
     for (int i = 0; i <  two_size; ++i)
     {
         int tmp;
@@ -129,5 +138,8 @@ int main()
     three = *three.op_plus(&one, &two);
     std::cout << "Третий список: " << std::endl;
     three.print_list();
+    one.free_mem();
+    two.free_mem();
+    three.free_mem();
     return 0;
 }
