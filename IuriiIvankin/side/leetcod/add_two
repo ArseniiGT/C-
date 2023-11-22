@@ -1,0 +1,144 @@
+
+// https://leetcode.com/problems/add-two-numbers/ задача отсюда
+
+#include <iostream>
+#include <cmath>
+
+
+class list
+{
+
+private:
+    struct dataNode
+    {
+        int number;
+        dataNode* next;
+    };
+    dataNode* head;
+public:
+    list()
+    {
+        head = nullptr;
+    }
+    void addend(int now)
+    {
+        dataNode* add = new dataNode;
+        if (add)
+        {
+            add->number = now;
+            add->next = nullptr;
+            if(head == nullptr)
+            {
+                head = add;
+            }
+            else
+            {
+                dataNode* tmp = head;
+                while (tmp->next != nullptr)
+                {
+                    tmp = tmp->next;
+                }
+                tmp->next = add;
+            }
+        }
+    }
+
+    void print_list()
+    {
+        dataNode* tmp;
+        tmp = head;
+        int count = 1;
+        while (tmp != nullptr)
+        {
+            std::cout << "Число в ячейки " << count << ": " << tmp->number << std::endl;
+            count++;
+            tmp = tmp->next;
+        }
+        delete tmp;
+    }
+    list* op_plus(list *one, list *two)
+    {
+        list *three;
+        int remainder = 0;
+        dataNode *one_list, *two_list, *three_list, *three_head;
+        one_list = one->head;
+        two_list = two->head;
+        three_list = new dataNode;
+        three_head = three->head;
+        three_list = three_head;
+        while(one_list != nullptr || two_list != nullptr)
+        {
+            int num;
+            if (one_list != nullptr && two_list != nullptr)
+                num = one_list->number + two_list->number + remainder;
+            else if (one_list == nullptr)
+                num = two_list->number + remainder;
+            else if (two_list == nullptr)
+                num = one_list->number + remainder;
+
+            if (num > 9)
+            {
+                num = num%10;
+                remainder = 1;
+            }
+            else
+                remainder = 0;
+            three_list->number = num;
+            three_list->next = nullptr;
+            one_list = one_list->next;
+            two_list = two_list->next;
+            three_list = three_list->next;
+        }
+        three->head = three_head;
+        return three;
+    }
+    void free_mem()
+    {
+        dataNode* tmp = head;
+        while (tmp!= nullptr)
+        {
+            tmp = tmp->next;
+            delete head;
+            head = tmp;
+        }
+    }
+};
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    list one, two, three;
+    int one_size, two_size;
+    std::cout << "Введите размер первого списка: ";
+    std::cin >> one_size;
+    std::cout << "Введите размер второго списка: ";
+    std::cin >> two_size;
+    std::cout << std::endl;
+    for (int i = 0; i <  one_size; ++i)
+    {
+        int tmp;
+        std::cout << "Введите " << i+1 << " элемент первого списка: ";
+        std::cin >> tmp;
+        one.addend(tmp);
+    }
+    std::cout << std::endl;
+    for (int i = 0; i <  two_size; ++i)
+    {
+        int tmp;
+        std::cout << "Введите " << i+1 << " элемент второго списка: ";
+        std::cin >> tmp;
+        two.addend(tmp);
+    }
+    std::cout << "Первый список: " << std::endl;
+    one.print_list();
+    std::cout << "Второй список: " << std::endl;
+    two.print_list();
+    three = *three.op_plus(&one, &two);
+    std::cout << "Третий список: " << std::endl;
+    three.print_list();
+    one.free_mem();
+    two.free_mem();
+    three.free_mem();
+    return 0;
+}
