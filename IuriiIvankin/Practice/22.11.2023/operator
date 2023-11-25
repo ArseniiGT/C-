@@ -1,0 +1,118 @@
+#include <iostream>
+
+//using namespace std;
+//
+//class Counter
+//{
+//public:
+//    Counter(int sec) {
+//        seconds = sec;
+//    }
+//    void display() {
+//        cout << seconds << " seconds" << endl;
+//    }
+//    Counter operator + (Counter c2) {
+//        return Counter(this->seconds+ c2.seconds);
+//    }
+//    int seconds;
+//};
+//
+//int main()
+//{
+//    Counter c1(20);
+//    Counter c2(10);
+//    Counter c3 = c1 + 25;
+//    c3.display();
+//    return 0;
+//}
+
+
+class Fraction
+{
+private:
+    int nom;
+    int den;
+public:
+    Fraction(int set_nom, int set_den)
+    {
+        nom = set_nom;
+        den = set_den;
+    }
+
+    void print()
+    {
+        std:: cout  << nom << "\n-\n" << den;
+    }
+    int reduction(int n, int d)
+    {
+        if (n>0) {
+            while (n > 0 && d > 0) {
+                if (n > d)
+                    n %= d;
+                else
+                    d %= n;
+            }
+        }
+        else
+        {
+            n = -n;
+            while (n > 0 && d > 0) {
+                if (n > d)
+                    n %= d;
+                else
+                    d %= n;
+            }
+            n -= n*n;
+        }
+        return n+d;
+    }
+
+    Fraction operator + (Fraction F2)
+    {
+        nom = this->nom * F2.den + this->den * F2.nom;
+        den = this->den * F2.den;
+        int save_nom = nom;
+        nom = nom/ reduction(nom,den);
+        den = den/ reduction(save_nom,den);
+        return  Fraction(nom, den);
+    }
+    Fraction operator - (Fraction F2)
+    {
+        nom = this->nom * F2.den - this->den * F2.nom;
+        den = this->den * F2.den;
+        int save_nom = nom;
+        if(nom < 0)
+        {
+            nom = nom / reduction(save_nom, den);
+            nom = -nom;
+            save_nom = -save_nom;
+            den = den / reduction(save_nom, den);
+        }
+        else
+        {
+            nom = nom / reduction(save_nom, den);
+            den = den / reduction(save_nom, den);
+        }
+
+        return  Fraction(nom, den);
+    }
+    Fraction operator * (Fraction F2)
+    {
+        nom = this->nom * F2.nom;
+        den = this->den * F2.den;
+        int save_nom = nom;
+        nom = nom / reduction(save_nom, den);
+        den = den / reduction(save_nom, den);
+        return  Fraction(nom, den);
+    }
+};
+
+
+int main()
+{
+    Fraction a(-5,4);
+    Fraction b(-6, 6);
+    Fraction c = a*b;
+    c.print();
+    return 0;
+}
