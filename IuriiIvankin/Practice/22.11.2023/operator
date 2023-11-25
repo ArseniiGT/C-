@@ -1,32 +1,5 @@
 #include <iostream>
 
-//using namespace std;
-//
-//class Counter
-//{
-//public:
-//    Counter(int sec) {
-//        seconds = sec;
-//    }
-//    void display() {
-//        cout << seconds << " seconds" << endl;
-//    }
-//    Counter operator + (Counter c2) {
-//        return Counter(this->seconds+ c2.seconds);
-//    }
-//    int seconds;
-//};
-//
-//int main()
-//{
-//    Counter c1(20);
-//    Counter c2(10);
-//    Counter c3 = c1 + 25;
-//    c3.display();
-//    return 0;
-//}
-
-
 class Fraction
 {
 private:
