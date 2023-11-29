@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+
+void second_check(std::string pass)
+{
+    bool check = false;
+    std::string specialChars = "!@#$%^&*()<>?,.";
+    for (int i = 0; i < pass.length(); i++)
+    {
+        for (int j = 0; j < specialChars.size(); ++j)
+        {
+            if (pass[i] == specialChars[j])
+                check = true;
+        }
+    }
+    if (!check)
+    {
+        throw std::string("Пароль не содержит специальных символов");
+    }
+    std::cout << "Пароль подходит!";
+}
+
+void first_check(std::string pass) {
+    if (pass.size() < 6)
+    {
+        throw std::string ("Пароль меньше 6 символов");
+    }
+}
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::string pass;
+    std::cout << "Введите пароль: ";
+    std::cin >> pass;
+    try
+    {
+        first_check(pass);
+        second_check(pass);
+    }
+    catch(std::string &ex)
+    {
+        std::cout << ex;
+    }
+    return 0;
+}
