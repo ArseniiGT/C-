@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::vector<std::string> arr = {"apple", "banana", "cherry", "date"};
+    for (std::string tmp : arr)
+    {
+        std::cout << tmp << ' ';
+    }
+    std::cout << std::endl << "Напишите номер элемента, который желаете удалить: ";
+    int index_del = 0;
+    std::cin >> index_del;
+    arr.erase(arr.begin()+(index_del-1));
+    for (std::string tmp : arr)
+    {
+        std::cout << tmp << ' ';
+    }
+    return 0;
+}
+
+
+
