@@ -1,0 +1,25 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::map<std::string, int> products;
+    products["apple"] = 1.0;
+    products["banana"] = 0.5;
+    products["cherry"] = 2.5;
+    std::string find_name;
+    std::cin >> find_name;
+    if (products.count(find_name))
+    {
+        std::cout<< "Price of " << find_name << ": $" << products[find_name];
+    }
+    else {
+        std::cout << "Product not found." << std::endl;
+    }
+    return 0;
+}
+
+
+
