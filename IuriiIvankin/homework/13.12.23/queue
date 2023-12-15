@@ -1,0 +1,15 @@
+#include <iostream>
+#include <queue>
+#include <string>
+
+int main()
+{
+    std::queue<std::string> tasks;
+    tasks.push("Task 1");
+    tasks.push("Task 2");
+    tasks.push("Task 3");
+    std::cout << "Current task: " << tasks.front() << std::endl;
+    tasks.pop();
+    std::cout << "Next task: " << tasks.front() << std::endl;
+    return 0;
+}
