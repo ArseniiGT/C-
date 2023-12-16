@@ -1,0 +1,28 @@
+#include <iostream>
+#include <memory>
+
+class car
+{
+private:
+    std::string name;
+    int year;
+public:
+    car (std::string Kname, int Kyear)
+    {
+        name = Kname;
+        year = Kyear;
+    }
+    ~ car()
+    {
+        std::cout << name << ' ' << year << std::endl;
+        std::cout << "Уничтожение объекта класс";
+    }
+};
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::unique_ptr <car> car1 = std::make_unique<car>("Toyota", 1994);
+
+    return 0;
+}
