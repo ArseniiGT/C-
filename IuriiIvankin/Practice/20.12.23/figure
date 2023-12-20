@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+
+class figure
+{
+public:
+    virtual double count_area() const = 0;
+};
+
+class circle : public figure
+{
+private:
+    double radius;
+public:
+    void setRadius(double rad)
+    {
+        radius = rad;
+    }
+    double count_area() const override
+    {
+        return 3.1415*radius*radius;
+    }
+};
+
+class square : public figure
+{
+private:
+    double side;
+public:
+    void setside(double sidetmp)
+    {
+        side = sidetmp;
+    }
+    double count_area() const override
+    {
+        return side*side;
+    }
+};
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    std::vector<figure*> figures;
+    circle circle1;
+    square square1;
+    circle1.setRadius(2.5);
+    square1.setside(4.5);
+    figures.push_back(&circle1);
+    figures.push_back(&square1);
+    double total_area = 0;
+    for (auto figure : figures)
+    {
+        total_area += figure->count_area();
+    }
+
+    std::cout << total_area;
+    return 0;
+}
